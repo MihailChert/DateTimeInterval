@@ -22,6 +22,8 @@ public:
 
 private slots:
     void on_AddTimeIntervalButton_clicked();
+    void onDateTimeIntervalFormRemoveClick(QWidget* widgetToRemove);
+    void recalculateSumOfIntervals();
 
 private:
     Ui::MainWindow *ui;

@@ -85,6 +85,9 @@
          <property name="styleSheet">
           <string notr="true">border:1px solid rgb(192, 191, 188); border-radius:5px;</string>
          </property>
+         <property name="title">
+          <string>From</string>
+         </property>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <property name="leftMargin">
            <number>0</number>
@@ -199,6 +202,9 @@
          <property name="styleSheet">
           <string notr="true">border:1px solid rgb(192, 191, 188); border-radius:5px;</string>
          </property>
+         <property name="title">
+          <string>To</string>
+         </property>
          <layout class="QVBoxLayout" name="InputEndDTLayout">
           <property name="leftMargin">
            <number>0</number>
@@ -247,7 +253,7 @@
              <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
             </property>
             <property name="displayFormat">
              <string>HH:mm</string>

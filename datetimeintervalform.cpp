@@ -15,7 +15,6 @@ DateTimeIntervalForm::DateTimeIntervalForm(QWidget *parent)
     ui->InputEndTime->setTime(QTime::currentTime());
 
     _timeDelta = new DateTimeInterval();
-    connect(this, SIGNAL(intervalChanged()), SLOT(repaint()));
 
     connect(ui->InputStartDate, &QDateEdit::dateChanged, this, &DateTimeIntervalForm::onDateTimeFinishChenged);
     connect(ui->InputStartTime, &QTimeEdit::timeChanged, this, &DateTimeIntervalForm::onDateTimeFinishChenged);
@@ -34,12 +33,6 @@ void DateTimeIntervalForm::updateResult(){
     ui->DaysResult->setText(_timeDelta->toDaysString());
 }
 
-void DateTimeIntervalForm::on_RemoveTimeIntervalButton_clicked()
-{
-    return;
-}
-
-
 void DateTimeIntervalForm::onDateTimeFinishChenged()
 {
     QDateTime start = QDateTime(ui->InputStartDate->date(), ui->InputStartTime->time());
@@ -49,8 +42,14 @@ void DateTimeIntervalForm::onDateTimeFinishChenged()
     emit intervalChanged();
 }
 
-DateTimeInterval* DateTimeIntervalForm::getInterval(){
-    return new DateTimeInterval(*_timeDelta);
+DateTimeInterval DateTimeIntervalForm::getInterval(){
+    return DateTimeInterval(*_timeDelta);
 }
 
+
+
+void DateTimeIntervalForm::on_RemoveTimeIntervalButton_clicked()
+{
+    emit intervalRemoveClick(this);
+}
 

@@ -16,7 +16,7 @@ public:
     explicit DateTimeIntervalForm(QWidget *parent = nullptr);
     ~DateTimeIntervalForm();
 
-    DateTimeInterval* getInterval();
+    DateTimeInterval getInterval();
 
 private:
     Ui::DateTimeIntervalForm* ui;
@@ -26,9 +26,10 @@ private:
 
 signals:
     void intervalChanged();
+    void intervalRemoveClick(QWidget* removableWidget);
 private slots:
-    void on_RemoveTimeIntervalButton_clicked();
     void onDateTimeFinishChenged();
+    void on_RemoveTimeIntervalButton_clicked();
 };
 
 #endif // DATETIMEINTERVALFORM_H

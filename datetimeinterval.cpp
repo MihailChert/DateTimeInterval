@@ -3,6 +3,11 @@
 DateTimeInterval::DateTimeInterval(QDateTime& first, QDateTime& second) {
     if(first.isNull() || second.isNull()){
         this->_intervalSeconds = 0;
+        return;
+    }
+    if(first > second){
+        this->_intervalSeconds = 0;
+        return;
     }
     this->_intervalSeconds = first.secsTo(second);
 }
@@ -40,5 +45,19 @@ QString DateTimeInterval::toDaysString(){
 }
 
 void DateTimeInterval::recalculate(const QDateTime& first, const QDateTime& second){
+    if(first > second){
+        this->_intervalSeconds = 0;
+        return;
+    }
     this->_intervalSeconds = first.secsTo(second);
+}
+
+DateTimeInterval DateTimeInterval::operator +(const DateTimeInterval& second){
+    DateTimeInterval new_date = DateTimeInterval();
+    new_date._intervalSeconds = this->_intervalSeconds + second._intervalSeconds;
+    return new_date;
+}
+
+void DateTimeInterval::operator +=(const DateTimeInterval& summand){
+    this->_intervalSeconds += summand._intervalSeconds;
 }

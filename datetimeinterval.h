@@ -16,6 +16,8 @@ public:
     QString toHoursString();
     QString toDaysString();
     void recalculate(const QDateTime& first, const QDateTime& seconds);
+    virtual DateTimeInterval operator +(const DateTimeInterval& second);
+    void operator +=(const DateTimeInterval& summand);
 
 private:
     qint64 _intervalSeconds;
