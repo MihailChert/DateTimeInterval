@@ -2,7 +2,6 @@
 #define DATETIMEINTERVAL_H
 
 #include <QDateTime>
-#include <QtTypes>
 #include <QString>
 
 class DateTimeInterval

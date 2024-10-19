@@ -22,8 +22,8 @@ void MainWindow::before_show(){
     DateTimeIntervalForm* content = new DateTimeIntervalForm();
     _scroll_area_layout->addWidget(content);
     content->show();
-    connect(content, &DateTimeIntervalForm::intervalRemoveClick, this, &MainWindow::onDateTimeIntervalFormRemoveClick);
-    connect(content, &DateTimeIntervalForm::intervalChanged, this, &MainWindow::recalculateSumOfIntervals);
+    connect(content, SIGNAL(intervalRemoveClick(QWidget*)), this, SLOT(onDateTimeIntervalFormRemoveClick(QWidget*)));
+    connect(content, SIGNAL(intervalChanged()), this, SLOT(recalculateSumOfIntervals()));
     _scroll_area_layout->addSpacerItem(new QSpacerItem(0, 20, QSizePolicy::Minimum, QSizePolicy::Expanding));
 }
 
@@ -38,8 +38,8 @@ MainWindow::~MainWindow()
 void MainWindow::on_AddTimeIntervalButton_clicked()
 {
     DateTimeIntervalForm* content = new DateTimeIntervalForm();
-    connect(content, &DateTimeIntervalForm::intervalRemoveClick, this, &MainWindow::onDateTimeIntervalFormRemoveClick);
-    connect(content, &DateTimeIntervalForm::intervalChanged, this, &MainWindow::recalculateSumOfIntervals);
+    connect(content, SIGNAL(intervalRemoveClick(QWidget*)), this, SLOT(onDateTimeIntervalFormRemoveClick(QWidget*)));
+    connect(content, SIGNAL(intervalChanged()), this, SLOT(recalculateSumOfIntervals()));
     _scroll_area_layout->insertWidget(_scroll_area_layout->count()-1, content);
     content->show();
 }

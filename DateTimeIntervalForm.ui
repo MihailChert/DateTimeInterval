@@ -144,11 +144,6 @@
           </item>
           <item>
            <widget class="QTimeEdit" name="InputStartTime">
-            <property name="font">
-             <font>
-              <hintingpreference>PreferNoHinting</hintingpreference>
-             </font>
-            </property>
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
@@ -283,11 +278,6 @@
         <width>31</width>
         <height>16777215</height>
        </size>
-      </property>
-      <property name="font">
-       <font>
-        <fontweight>ExtraBold</fontweight>
-       </font>
       </property>
       <property name="text">
        <string> =&gt; </string>

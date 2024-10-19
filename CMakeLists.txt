@@ -19,7 +19,12 @@ set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
         mainwindow.h
+        datetimeinterval.cpp
+        datetimeinterval.h
+        datetimeintervalform.cpp
+        datetimeintervalform.h
         mainwindow.ui
+        DateTimeIntervalForm.ui
         ${TS_FILES}
 )
 
@@ -67,7 +72,7 @@ set_target_properties(DateTimeIntervalProgram PROPERTIES
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE
-    WIN32_EXECUTABLE TRUE
+    #WIN32_EXECUTABLE TRUE
 )
 
 include(GNUInstallDirs)

@@ -15,11 +15,11 @@ DateTimeIntervalForm::DateTimeIntervalForm(QWidget *parent)
     ui->InputEndTime->setTime(QTime::currentTime());
 
     _timeDelta = new DateTimeInterval();
-
-    connect(ui->InputStartDate, &QDateEdit::dateChanged, this, &DateTimeIntervalForm::onDateTimeFinishChenged);
-    connect(ui->InputStartTime, &QTimeEdit::timeChanged, this, &DateTimeIntervalForm::onDateTimeFinishChenged);
-    connect(ui->InputEndDate, &QDateEdit::dateChanged, this, &DateTimeIntervalForm::onDateTimeFinishChenged);
-    connect(ui->InputEndTime, &QTimeEdit::timeChanged, this, &DateTimeIntervalForm::onDateTimeFinishChenged);
+    
+    connect(ui->InputStartDate, SIGNAL(dateChanged(QDate)), this, SLOT(onDateTimeFinishChenged()));
+    connect(ui->InputStartTime, SIGNAL(timeChanged(QTime)), this, SLOT(onDateTimeFinishChenged()));
+    connect(ui->InputEndDate, SIGNAL(dateChanged(QDate)), this, SLOT(onDateTimeFinishChenged()));
+    connect(ui->InputEndTime, SIGNAL(timeChanged(QTime)), this, SLOT(onDateTimeFinishChenged()));
 }
 
 DateTimeIntervalForm::~DateTimeIntervalForm(){

@@ -24,23 +24,23 @@ QString DateTimeInterval::toSecondsString(){
     return QString::number(this->_intervalSeconds);
 }
 QString DateTimeInterval::toMinutesString(){
-    qint64 minutes = this->_intervalSeconds / 60;
-    qint8 seconds = this->_intervalSeconds % 60;
+    int64_t minutes = this->_intervalSeconds / 60;
+    int8_t seconds = this->_intervalSeconds % 60;
     return QString::number(minutes) + QString(" : ") + QString::number(seconds);
 }
 
 QString DateTimeInterval::toHoursString(){
-    qint64 hours = this->_intervalSeconds / 3600;
-    qint8 minutes = (this->_intervalSeconds - hours*3600) / 60;
-    qint8 seconds = this->_intervalSeconds % 60;
+    int64_t hours = this->_intervalSeconds / 3600;
+    int8_t minutes = (this->_intervalSeconds - hours*3600) / 60;
+    int8_t seconds = this->_intervalSeconds % 60;
     return QString::number(hours) + QString(" : ") + QString::number(minutes) + QString(" : ") + QString::number(seconds);
 }
 
 QString DateTimeInterval::toDaysString(){
-    qint64 days = this->_intervalSeconds / (24*3600);
-    qint8 hours = (this->_intervalSeconds - days*24*3600) / 3600;
-    qint8 minutes = (this->_intervalSeconds - days*24*3600 - hours*3600) / 60;
-    qint8 seconds = this->_intervalSeconds % 60;
+    int64_t days = this->_intervalSeconds / (24*3600);
+    int8_t hours = (this->_intervalSeconds - days*24*3600) / 3600;
+    int8_t minutes = (this->_intervalSeconds - days*24*3600 - hours*3600) / 60;
+    int8_t seconds = this->_intervalSeconds % 60;
     return QString::number(days) + QString(" : ") + QString::number(hours) + QString(" : ") + QString::number(minutes) + QString(" : ") + QString::number(seconds);
 }
 
